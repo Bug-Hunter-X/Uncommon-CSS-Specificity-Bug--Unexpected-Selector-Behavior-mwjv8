@@ -1,0 +1,22 @@
+The solution involves understanding and adjusting the selectors to ensure the correct specificity. Here's the corrected CSS:
+
+```css
+/* Using more appropriate selectors to resolve conflicts. Note that you may need to adjust the order of selectors depending on the requirement */
+#container {
+  width: 300px;
+}
+
+.container {
+  width: 200px;
+}
+
+.container #container {
+  width: 100px; /* If you want this to be applied, make sure it is the most specific rule. Otherwise remove it*/
+}
+
+#container.container {
+  width: 400px; /* If you want this to be applied, make sure it is the most specific rule. Otherwise remove it*/
+}
+```
+
+This corrected CSS uses more specific selectors to ensure styles are applied predictably. The main goal is to avoid unexpected behavior and ensure the styles are applied as intended.
