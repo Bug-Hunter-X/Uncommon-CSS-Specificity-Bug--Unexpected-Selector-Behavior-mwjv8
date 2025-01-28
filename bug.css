@@ -1,0 +1,26 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+.container {
+  width: 200px;
+}
+
+#container {
+  width: 300px;
+}
+
+.container #container {
+  width: 100px;
+}
+
+#container.container {
+  width: 400px;
+}
+
+```
+
+The issue arises because the selector `.container #container` is more specific than `#container` because it has a class and an ID selector but has a lower specificity than `#container.container` which has two selectors of an ID and Class.
+
+The unexpected behavior is that if an element has both the class "container" and the ID "container", the `.container #container` selector is more specific than `#container` and `#container.container` selectors even though the ID is more specific. Although `#container.container` is more specific than `.container #container` due to combining ID and Class selectors, this may not be what is intended or expected when considering specificity.
+
+Many developers may expect the `#container` selector to always override others and consider the `#container.container` as a more specific alternative.
